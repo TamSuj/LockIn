@@ -194,7 +194,7 @@
     <div class="container">
         <h1 class="title">🐧 LockIn</h1>
         
-        <div class="penguin-container" id="penguin">
+        <div class="penguin-container">
             <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
                 <!-- Penguin body -->
                 <ellipse cx="60" cy="70" rx="35" ry="40" fill="#333"/>
@@ -334,7 +334,7 @@
                 isBreak = true;
                 
                 // Determine break type
-                if (currentCycle >= CYCLES_BEFORE_LONG_BREAK) {
+                if (currentCycle === CYCLES_BEFORE_LONG_BREAK) {
                     timeRemaining = LONG_BREAK;
                     currentCycle++;
                 } else {
@@ -399,11 +399,6 @@
             } catch (e) {
                 console.log('Audio notification not available');
             }
-        }
-
-        // Request notification permission
-        if ('Notification' in window && Notification.permission === 'default') {
-            Notification.requestPermission();
         }
 
         // Initial display
